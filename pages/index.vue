@@ -1,10 +1,16 @@
 <template>
-  <div class="container">
-    <div>
-      <h1 class="title">
-        teamLab Borderless
-      </h1>
-      <Map />
+  <div>
+    <div class="container">
+      <div>
+        <h2 class="title">
+          teamLab Borderless
+        </h2>
+
+        <Map :lat="35.626097" :lon="139.782513" />
+      </div>
+    </div>
+    <div class="container">
+      <nuxt-link to="/local"><h2>Get your position</h2></nuxt-link>
     </div>
   </div>
 </template>
@@ -16,7 +22,6 @@ export default {};
 <style>
 .container {
   margin: 0 auto;
-  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -4,6 +4,24 @@
 
 <script>
 export default {
+  head() {
+    return {
+      script: [
+        {
+          src: "https://polyfill.io/v3/polyfill.min.js?features=default"
+        },
+        {
+          src:
+            "https://maps.googleapis.com/maps/api/js?key=AIzaSyB8Ovkw9LSpoP2-HOYCdd9ZKVhz6oEo7Vg",
+          defer: true
+        }
+      ]
+    };
+  },
+  props: {
+    lat: Number,
+    lon: Number
+  },
   data() {
     return {};
   },
@@ -12,14 +30,13 @@ export default {
   },
   methods: {
     initMap() {
-      const location = { lat: 35.626097, lng: 139.782513 };
+      const location = { lat: this.$props.lat, lng: this.$props.lon };
       const map = new google.maps.Map(document.getElementById("map"), {
         center: location,
         zoom: 15
       });
       var marker = new google.maps.Marker({
         position: location,
-        label: "T", // teamLab
         animation: google.maps.Animation.DROP
       });
       marker.setMap(map);
